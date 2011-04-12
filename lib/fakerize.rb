@@ -1,6 +1,4 @@
-require 'bundler/setup'
 require 'faker'
-#require 'faker_medical'
 require 'sequel'
 
 require_relative 'fakerize/config'

@@ -1,3 +1,11 @@
+PATH
+  remote: .
+  specs:
+    fakerize (0.0.1)
+      faker (>= 0.9.5)
+      mysql (>= 2.8.1)
+      sequel (>= 3.21.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -20,7 +28,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  faker
-  mysql
-  rspec
-  sequel
+  fakerize!
+  rspec (>= 2.5.0)
