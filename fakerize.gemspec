@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "faker", ">= 0.9.5"
   s.add_dependency "mysql", ">= 2.8.1"
 
-  s.files        = Dir.glob("{bin,lib}/**/*") + %w(LICENSE README.md)
+  s.files        = Dir.glob("{bin,lib}/**/*") + %w(LICENSE readme.md)
   s.executables  = ['fakerize']
   s.require_path = 'lib'
 end
