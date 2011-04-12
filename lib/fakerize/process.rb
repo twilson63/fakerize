@@ -17,9 +17,16 @@ module Fakerize
     def run(data, options)
 
       options.each do |option|
-        data[option[:field]] = eval(option[:fakerize])
+        cmd = build_faker_command(option[:fakerize])
+        data[option[:field]] = eval(cmd)
       end
       data
     end
+
+
+    def build_faker_command(command)
+      ['Faker', command].join('::')
+    end
+
   end
 end

@@ -1,16 +1,31 @@
 # Fakerize
 
-The purpose of this project is to de-identify any sensitive data in a
-database, but still render it useful for creating and deploying a demo
-system.  
+A CLI that allows you to de-identify data in your database.
 
-## Input
+    gem install fakerize
+    # create a config file
+    # run
+    fakerize database:convert mysql://user@localhost/mydb myconfig.yml
 
-The input is a simple yaml config file that contians a list of tables
+
+## Why
+
+We needed a way to quickly generate a demo system that has some real
+data, but in a way that provided a complete de-identification of people
+in our database.  We wanted to make the process extensible and re-usable
+so that we can use for our future data stores.
+
+
+
+## Config File
+
+Using a yaml config file that contians a list of tables
 within each table a list of fields to fakerize, then on each field it
 contains the Faker Class and Method that needs to be called.
 
+Here is an example:
 
+    ---
     models:
       - 
         :name: :patients
@@ -21,9 +36,6 @@ contains the Faker Class and Method that needs to be called.
         -
           :field: :first_name
           :fakerize: Name.first_name
-        -
-          :field: ssn
-          :value: Patient.ssn
 
 ## Command Line
 
@@ -36,33 +48,16 @@ contains the Faker Class and Method that needs to be called.
 
 * Ruby 1.9.2
 * Faker Gem
-* Faker Medical Gem
 * Sequel Gem
 * MySql Gem
 
 
 ## ToDos
 
-* Setup Project
-* Fakerize Class
+* Setup Gemspec file
+* Add Plugin System to make the data modules datastore agnostic
+* Add a database clean functionality to remove data
 
-Fakerize Class takes an array and a config file as inputs, then it loops
-thru the array and finds all the hash attributes and runs fakerize on
-them.
-
-
-config = YAML::Load_file('config')
-config[:models].each do |model|
-  fakerize_options = model[:options]
-  db[model[:name]].each do |record|
-    fakerized_data = Fakerize.process(record, fakerize_options)
-    record.update_attributes(fakerized_data)
-  end
-end
-####
-create a simple module that takes a set options and a hash then returns
-a fakerized hash.
-####
 
 
 

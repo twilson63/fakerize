@@ -10,7 +10,7 @@ describe 'Fakerize::Process' do
   end
 
   let(:fakerize_options) do
-    [{ :field => :first_name, :fakerize => 'Faker::Name.first_name' }]
+    [{ :field => :first_name, :fakerize => 'Name.first_name' }]
   end
 
   it 'should fakerize attributes' do
