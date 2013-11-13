@@ -36,6 +36,15 @@ Here is an example:
         -
           :field: :first_name
           :fakerize: Name.first_name
+        -
+          :field: :ssn
+          :fakerize: Ssn.en_ssn
+        -
+          :field: :dob
+          :fakerize: Patient.dob
+        - 
+          :field: :phone
+          :fakerize: Patient.phone
 
 ## Command Line
 
